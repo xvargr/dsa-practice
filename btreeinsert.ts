@@ -48,10 +48,9 @@ export function insert(
     attachNode(back!, val, val > back!.val ? "r" : "l");
     return;
   }
-  if (val > node.val) return insert(node.r, val, node);
-  return insert(node.l, val, node);
+  if (val <= node.val) return insert(node.l, val, node);
+  return insert(node.r, val, node);
 }
-
 insert(tree, 0);
 console.log("0 in correct position", tree.l.l.l.val === 0);
 insert(tree, 18);
@@ -63,5 +62,4 @@ console.log("17 in correct position", tree.r.r.l.r.val === 17);
 insert(tree, 17);
 console.log("17 in correct position", tree.r.r.l.r.l.val === 17);
 insert(tree, 10);
-console.log(tree);
-console.log("10 in correct position", tree.l.r.r === 10);
+console.log("10 in correct position", tree.l.r.r.val === 10);

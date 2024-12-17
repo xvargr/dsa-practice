@@ -11,9 +11,11 @@ function part(arr: number[], lo: number, hi: number): number {
   let i = lo - 1;
   for (let j = lo; j < hi; j++) {
     if (arr[j] >= arr[hi]) continue;
-    swap(arr, j, ++i);
+    i++;
+    swap(arr, i, j);
   }
-  swap(arr, hi, ++i);
+  i++;
+  swap(arr, i, hi);
   return i;
 }
 

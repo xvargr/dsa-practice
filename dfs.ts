@@ -20,7 +20,7 @@ export function dfs(
 ): string[] {
   const current = stack.pop();
   console.log(current);
-  if (!current) return [];
+  if (current === undefined) return [];
   if (visited[current]) return dfs(graph, target, stack, visited);
   visited[current] = true;
   if (current === target) return [current];

@@ -35,10 +35,9 @@ const tree = {
 };
 
 export function bTreeSearch(node: INode | null, target: number): boolean {
-  console.log(node?.val);
   if (node === null) return false;
   if (node.val === target) return true;
-  if (node.val > target) return bTreeSearch(node.l, target);
+  if (target < node.val) return bTreeSearch(node.l, target);
   return bTreeSearch(node.r, target);
 }
 

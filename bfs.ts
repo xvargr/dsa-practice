@@ -42,10 +42,14 @@ const graph: IGraph = {
 // }
 
 export function bfs(graph: IGraph, target: string, start: string): boolean {
-  const queue: string[] = [start];
+  const queue = [start];
+  const visited = {};
   while (queue.length > 0) {
     const current = queue.shift()!;
+    console.log(current);
     if (current === target) return true;
+    if (visited[current]) continue;
+    visited[current] = true;
     queue.push(...(graph[current] ?? []));
   }
   return false;
